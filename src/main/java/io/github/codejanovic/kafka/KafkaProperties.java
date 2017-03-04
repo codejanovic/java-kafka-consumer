@@ -1,7 +1,6 @@
 package io.github.codejanovic.kafka;
 
 import io.github.codejanovic.cli.Arguments;
-
 import java.util.Properties;
 
 public interface KafkaProperties {
@@ -18,7 +17,7 @@ public interface KafkaProperties {
         public Properties get() {
             final Properties properties = new Properties();
             properties.setProperty("zookeeper.connect", arguments.zookeeper());
-            properties.setProperty("bootstrap.servers", arguments.kafka());
+            //properties.setProperty("bootstrap.servers", arguments.kafka());
             properties.setProperty("group.id", arguments.groupId());
             properties.setProperty("auto.offset.reset", arguments.autoOffsetReset());
             return properties;

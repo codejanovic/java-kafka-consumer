@@ -3,6 +3,8 @@ package io.github.codejanovic.cli;
 import org.apache.commons.cli.CommandLine;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collection;
 
 public interface Arguments {
 
@@ -10,7 +12,7 @@ public interface Arguments {
     String kafka();
     String groupId();
     String autoOffsetReset();
-    String topic();
+    Collection<String> topics();
 
     final class Cli implements Arguments, Serializable {
 
@@ -41,8 +43,8 @@ public interface Arguments {
         }
 
         @Override
-        public String topic() {
-            return commandLine.getOptionValue("topic", "");
+        public Collection<String> topics() {
+            return Arrays.asList(commandLine.getOptionValues("topics"));
         }
     }
 }
