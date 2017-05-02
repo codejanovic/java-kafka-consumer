@@ -9,7 +9,6 @@ import java.util.Collection;
 public interface Arguments {
 
     String zookeeper();
-    String kafka();
     String groupId();
     String autoOffsetReset();
     Collection<String> topics();
@@ -25,11 +24,6 @@ public interface Arguments {
         @Override
         public String zookeeper() {
             return commandLine.getOptionValue("zookeeper", "");
-        }
-
-        @Override
-        public String kafka() {
-            return commandLine.getOptionValue("kafka", "");
         }
 
         @Override
